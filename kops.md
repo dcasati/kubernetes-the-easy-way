@@ -25,3 +25,28 @@ To Delete a cluster
 ```bash
 kops delete cluster --name cross-cloud.xyz --yes
 ```
+## Exporting kubecfg
+
+```bash
+kops export  kubecfg --name cross-cloud.xyz
+```
+
+## Working with multiple contexts
+
+### What contexts are available?
+```bash 
+kubectl config get-contexts
+```
+
+> Output
+```
+CURRENT   NAME                             CLUSTER                          AUTHINFO                               NAMESPACE
+          azure-k8s-cross-cloud-5a1dae37   azure-k8s-cross-cloud-5a1dae37   azure-k8s-cross-cloud-5a1dae37-admin   
+*         cross-cloud.xyz                  cross-cloud.xyz                  cross-cloud.xyz    
+```
+### Change the current context
+
+```bash
+kubectl config set current-context  azure-k8s-cross-cloud-5a1dae37
+```
+
